@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("SkyMoneyConnectoion")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("SkyMoneyConnection")));
 
 var app = builder.Build();
 

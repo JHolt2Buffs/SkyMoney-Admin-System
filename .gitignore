@@ -1,0 +1,17 @@
+bin/
+obj/
+*.log
+
+.vs/
+*.user
+*.suo
+*.userprefs
+
+.DS_Store
+Thumbs.db
+
+*.db
+
+appsetttings.Development.json
+
+**/wwroot/lib

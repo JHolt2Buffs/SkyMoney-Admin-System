@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkyMoney-Admin-System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+738b683d7b3ce48656d7aa2186cf61f16ca40fd7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75867fd8535f2799767f09e0a0db004e9160cd0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkyMoney-Admin-System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkyMoney-Admin-System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
