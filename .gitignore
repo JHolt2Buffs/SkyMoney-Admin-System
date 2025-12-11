@@ -15,3 +15,5 @@ Thumbs.db
 appsetttings.Development.json
 
 **/wwroot/lib
+
+bin/Debug/net9.0
