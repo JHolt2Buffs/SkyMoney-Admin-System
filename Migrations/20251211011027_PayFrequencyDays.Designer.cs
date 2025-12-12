@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SkyMoney_Admin_System.Models;
 
@@ -10,9 +11,11 @@ using SkyMoney_Admin_System.Models;
 namespace SkyMoney_Admin_System.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251211011027_PayFrequencyDays")]
+    partial class PayFrequencyDays
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -165,6 +168,9 @@ namespace SkyMoney_Admin_System.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("PayFrequency")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("PayFrequencyDays")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UserAccountId");

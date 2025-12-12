@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace SkyMoney_Admin_System.Models;
 
@@ -28,5 +29,7 @@ public class FixedExpense
     [Display(Name = "Is Financed")]
     public bool IsFinanced { get; set; }
 
+
+    [ValidateNever]
     public BudgetPlan BudgetPlan { get; set; } = default!;
 }

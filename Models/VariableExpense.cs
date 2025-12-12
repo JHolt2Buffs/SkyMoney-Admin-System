@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace SkyMoney_Admin_System.Models;
 
@@ -22,6 +23,7 @@ public class VariableExpense
     [Display(Name = "Category Balance")]
     public decimal CategoryBalance { get; set; }
 
+    [ValidateNever]
     public BudgetPlan BudgetPlan { get; set; } = default!;
     
 

@@ -1,10 +1,95 @@
 ﻿@page
-@model IndexModel
+@model SkyMoney_Admin_System.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row mb-4">
+    <div class="col-lg-12   ">
+        <div class="p-4 bg-primary text-black rounded-3 shadow-sm">
+            <h1 class="display-6 mb-2">SkyMoney Admin Dashboard</h1>
+
+        </div>
+    </div>
+
+    <div class="row mb-4">
+    </div>
+    <div class="col-md-3">
+        <div class="card text-black bg-info shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle text-uppercase">Total Users</h6>
+                <h2 class="card-title mt-2">@Model.TotalUsers</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-black bg-success shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle text-uppercase">Regular Income</h6>
+                <h2 class="card-title mt-2">@Model.RegularUsers</h2>
+                <p class="mb-0 small text-white-50">Paid on a schedule</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-black bg-warning shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle text-uppercase">Irregular Income</h6>
+                <h2 class="card-title mt-2">@Model.IrregularUsers</h2>
+                <p class="mb-0 small text-white-50">Freelance / variable</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-dark shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle text-uppercase">Total Budgeted</h6>
+                <h2 class="card-title mt-2">@Model.TotalBudget.ToString("C")</h2>
+                <p class="mb-0 small text-white-50">Across all users</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="row  mb-4">
+    <div class="col-lg-12 mt-3 mt-lg-0">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body d-flex flex-column justify-content-center">
+                <h5 class="card-title">Quick Actions</h5>
+                <div class="d-grid gap-2 mt-2">
+                    <div class='row'>
+                        <div class='col-lg-3'>
+                            <a asp-page="/UserAccounts/Create" class="btn btn-lg btn-info">
+                                + Create New User
+                            </a>
+                        </div>
+                        <div class='col-lg-3'>
+                            <a asp-page="/UserAccounts/Index" class="btn btn-lg btn-success">
+                                View All Users
+                            </a>
+                        </div>
+
+                        <div class='col-lg-3'>
+                            <a asp-page="/UserAccounts/Details" asp-route-id="1" class="btn btn-lg btn-warning">
+                                View The Goat's Income Records
+                            </a>
+                        </div>
+                        <div class='col-lg-3'>
+
+                            <a asp-page="/UserAccounts/Details" asp-route-id="1" class="btn btn-lg btn-dark">
+                                View The Goat's Transactions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -11,8 +11,8 @@ using SkyMoney_Admin_System.Models;
 namespace SkyMoney_Admin_System.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251211001915_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251211012417_PayFrequencyTypeUpdated")]
+    partial class PayFrequencyTypeUpdated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -167,7 +167,7 @@ namespace SkyMoney_Admin_System.Migrations
                     b.Property<DateTime?>("NextScheduledPayDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PayFrequencyDays")
+                    b.Property<int?>("PayFrequency")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UserAccountId");

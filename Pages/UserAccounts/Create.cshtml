@@ -1,0 +1,121 @@
+@page
+@model SkyMoney_Admin_System.Pages_UserAccounts.CreateModel
+@using SkyMoney_Admin_System.Models   
+
+@{
+    ViewData["Title"] = "Create User & Budget";
+}
+
+<h1>Create User & Budget</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- User info -->
+    <h4>User Info</h4>
+    <hr />
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="UserAccount.EmailAddress" class="form-label"></label>
+                <input asp-for="UserAccount.EmailAddress" class="form-control" />
+                <span asp-validation-for="UserAccount.EmailAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="UserAccount.FirstName" class="form-label"></label>
+                <input asp-for="UserAccount.FirstName" class="form-control" />
+                <span asp-validation-for="UserAccount.FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="UserAccount.LastName" class="form-label"></label>
+                <input asp-for="UserAccount.LastName" class="form-control" />
+                <span asp-validation-for="UserAccount.LastName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="UserAccount.IncomeType" class="form-label"></label>
+                <select asp-for="UserAccount.IncomeType" class="form-select"
+                        asp-items="Html.GetEnumSelectList<IncomeType>()">
+                </select>
+                <span asp-validation-for="UserAccount.IncomeType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="UserAccount.PayFrequency" class="form-label"></label>
+                <select asp-for="UserAccount.PayFrequency" class="form-select"
+                        asp-items="Html.GetEnumSelectList<PayFrequencyType>()">
+                    <option value="">-- None --</option>
+                </select>
+                <span asp-validation-for="UserAccount.PayFrequency" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="UserAccount.NextScheduledPayDate" class="form-label"></label>
+                <input asp-for="UserAccount.NextScheduledPayDate" class="form-control" />
+                <span asp-validation-for="UserAccount.NextScheduledPayDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="UserAccount.CreatedAt" class="form-label"></label>
+                <input asp-for="UserAccount.CreatedAt" class="form-control" />
+                <span asp-validation-for="UserAccount.CreatedAt" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Budget plan -->
+    <h4 class="mt-4">Initial Budget Plan</h4>
+    <hr />
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BudgetPlan.PlanName" class="form-label"></label>
+                <input asp-for="BudgetPlan.PlanName" class="form-control" />
+                <span asp-validation-for="BudgetPlan.PlanName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BudgetPlan.TotalBudget" class="form-label"></label>
+                <input asp-for="BudgetPlan.TotalBudget" class="form-control" />
+                <span asp-validation-for="BudgetPlan.TotalBudget" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BudgetPlan.FundedExpenses" class="form-label"></label>
+                <input asp-for="BudgetPlan.FundedExpenses" class="form-control" />
+                <span asp-validation-for="BudgetPlan.FundedExpenses" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="form-label">Available Budget</label>
+                <input class="form-control" value="@Model.BudgetPlan.AvailableBudget.ToString("C")" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

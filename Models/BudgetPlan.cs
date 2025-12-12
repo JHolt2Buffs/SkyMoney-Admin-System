@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 
 namespace SkyMoney_Admin_System.Models;
 
@@ -27,6 +30,7 @@ public class BudgetPlan
     [Display(Name = "Available Budget")]
     public decimal AvailableBudget => TotalBudget - FundedExpenses;
 
+    [ValidateNever]
     public UserAccount UserAccount { get; set; } = default!;
     public List<VariableExpense> VariableExpenses { get; set; } = new();
     public List<FixedExpense> FixedExpenses { get; set; } = new();
