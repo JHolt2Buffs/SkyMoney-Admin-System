@@ -10,7 +10,7 @@ obj/
 .DS_Store
 Thumbs.db
 
-*.db
+
 
 appsettings.Development.json
 
