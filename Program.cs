@@ -15,6 +15,19 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     SeedData.Initialize(scope.ServiceProvider);
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        context.Database.Migrate();
+        SeedData.Initialize(services);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"ERROR during migration/seed: {ex.Message}");
+
+
+    }
 }
 
 
